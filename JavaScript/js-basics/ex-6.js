@@ -5,7 +5,6 @@ const people = [
 ];
 
 const grouped = people.reduce((acc, { city, name }) => {
-//   const { city, name } = person;
   if (!acc[city]) {
     acc[city] = [];
   }

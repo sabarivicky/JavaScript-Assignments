@@ -5,3 +5,4 @@ function fun(obj){
 }
 
 console.log(fun(obj));
+
