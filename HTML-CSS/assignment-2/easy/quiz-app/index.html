@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .quiz{
+            max-width: 600px;
+            margin: 50px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        button{
+            margin: 20px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz" id="quiz"></div>
+    <button id="submit">submit</button>
+    <p id="result"></p>
+
+    <script type="module">
+    import { quizData } from "./data.js";
+
+    const quizEl = document.getElementById("quiz");
+    const resultEl = document.getElementById("result");
+    const submitBtn = document.getElementById("submit");
+
+    quizData.forEach((q, index) => {
+        const div = document.createElement("div");
+
+        div.innerHTML = `
+            <h3>${index + 1}. ${q.question}</h3>
+            <label><input type="radio" name="q${index}" value="a"> ${q.a}</label><br>
+            <label><input type="radio" name="q${index}" value="b"> ${q.b}</label><br>
+            <label><input type="radio" name="q${index}" value="c"> ${q.c}</label><br>
+            <label><input type="radio" name="q${index}" value="d"> ${q.d}</label><br>
+        `;
+
+        quizEl.appendChild(div);
+    });
+
+    submitBtn.addEventListener("click", () => {
+        let score = 0;
+
+        quizData.forEach((q, index) => {
+            const selected = document.querySelector(
+                `input[name="q${index}"]:checked`
+            );
+
+            if (selected && selected.value === q.correct) {
+                score++;
+            }
+        });
+
+        resultEl.innerText = `You scored ${score} out of ${quizData.length}`;
+    });
+</script>
+</body>
+</html>

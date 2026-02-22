@@ -1,0 +1,30 @@
+.color-panel {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 12px;
+
+    background: white;
+    padding: 12px 16px;
+    border-radius: 40px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.color-panel button{
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.red{ color: black; background-color: red;}
+.green{ color: black; background-color: green;}
+.blue{ color: black; background-color: blue;}
+.yellow{ color: black; background-color: yellow;}
+
+.default{ color: black; background-color: sandybrown;}
+
