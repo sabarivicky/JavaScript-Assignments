@@ -5,3 +5,26 @@
 // Try to do an expensive operation below the file read and see how it affects the output. 
 // Make the expensive operation more and more expensive and see how it affects the output. 
 
+const { rejects } = require("assert");
+const fs = require("fs").promises;
+const { resolve } = require("path");
+async function main(filePath) {
+    try{
+        console.log("start");
+        let data = await(fs.readFile(filePath,"utf-8"));
+        console.log("end");
+    }
+    catch(err){
+        console.log("Error:"+err);
+    }
+}
+
+main("a.txt")
+console.log("start1");
+
+let sum =0;
+for (let i = 0; i < 1000000000; i++) {
+  sum += i;
+}
+console.log(sum);
+console.log("end1");
