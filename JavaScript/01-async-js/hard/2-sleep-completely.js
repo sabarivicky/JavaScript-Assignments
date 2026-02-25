@@ -4,7 +4,21 @@
  * the function should return a promise just like before
  */
 
+const { promise } = require("zod");
+
 function sleep(milliseconds) {
+    let p = new Promise((resolve)=>{
+        let start = Date.now();
+        while(Date.now()-start<milliseconds){
+            
+        }
+        resolve();
+    });
+    return p;
 }
+
+sleep(3000).then(()=>{
+    console.log("finished")
+});
 
 module.exports = sleep;

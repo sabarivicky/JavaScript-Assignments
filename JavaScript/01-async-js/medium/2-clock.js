@@ -6,3 +6,24 @@
 //  - HH:MM::SS (Eg. 13:45:23)
 
 //  - HH:MM::SS AM/PM (Eg 01:45:23 PM)
+
+function showTime(){
+
+    setInterval(()=>{
+        let now = new Date();
+        let hours = now.getHours();
+        let min = now.getMinutes();
+        let sec = now.getSeconds();
+        let ampm = hours>=12 ? "pm" : "am";
+        hours = hours%12===0 ? 12 : hours;
+        hours = String(hours).padStart(2,"0");
+        min = String(min).padStart(2,"0");
+        sec = String(sec).padStart(2, "0");
+        
+        console.log(`${hours}:${min}:${sec} ${ampm}`);
+
+    },1000);
+}
+
+showTime();
+

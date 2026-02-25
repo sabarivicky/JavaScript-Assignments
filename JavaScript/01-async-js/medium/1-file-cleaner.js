@@ -11,3 +11,19 @@
 // ```
 // hello world my name is raman
 // ```
+
+let fs = require("fs").promises;
+
+async function main(filePath){
+    try{
+        let data = await fs.readFile(filePath,"utf-8");
+        data = data.replace(/\s+/g," ").trim();
+        await fs.writeFile(filePath,data);
+    }
+    catch(err){
+        console.log("Error : "+err);
+    }
+}
+
+main("a.txt");
+
